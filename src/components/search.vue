@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <h2>Component Search</h2>
+        <h2>Filtro de nombres</h2>
         <section>
             <form v-on:submit.prevent="onSubmit">
-                <input type="text" placeholder="Ingrese nombre" id="inputName" v-model="valSearch">
-                <button @click="setSearch">Searchs</button>
+                <input type="text" placeholder="Buscador de nombres" id="inputName" v-model="valSearch">
+                <button @click="setSearch">Buscar</button>
             </form>
         </section>
     </div>
@@ -19,7 +19,8 @@ export default {
     },
     methods: {
         setSearch () {
-            this.$emit('passSearch', this.valSearch)
+            let searchToUpperCase = this.valSearch.toUpperCase()
+            this.$emit('passSearch', searchToUpperCase)
             this.valSearch = ''
         }
     },
@@ -27,11 +28,27 @@ export default {
 </script>
 <style scoped>
     .container {
+        display: flex;
+        flex-direction: column;
         background: rgb(64, 179, 179);
-        padding: 1rem;
-        margin: 1rem;
+        margin: 0.5rem;
+        padding-bottom: 1rem;
     }
-    #inputName {
-        margin-right: 1px;
+    h2 {
+        padding: 0;
+    }
+
+    input {
+        height: 1rem;
+        padding: 2px;
+        margin-right: 0.5rem;
+    }
+    button {
+        background-color: transparent;
+        height: 24px;
+        color: whitesmoke;
+    }
+    button:hover {
+        color: black;;
     }
 </style>
