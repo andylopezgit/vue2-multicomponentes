@@ -4,7 +4,7 @@
         <section>
             <form v-on:submit.prevent="onSubmit">
                 <input type="text" placeholder="Ingrese nombre" id="inputName" v-model="valSearch">
-                <button @click="setSearch">Search</button>
+                <button @click="setSearch">Searchs</button>
             </form>
         </section>
     </div>
